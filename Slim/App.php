@@ -76,9 +76,11 @@ class App
     public function __construct($container = [])
     {
         if (is_array($container)) {
+            //依赖注入 容器
             $container = new Container($container);
         }
         if (!$container instanceof ContainerInterface) {
+            //参数类型错误抛出错误
             throw new InvalidArgumentException('Expected a ContainerInterface');
         }
         $this->container = $container;
